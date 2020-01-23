@@ -1802,10 +1802,9 @@ app.config['CORS_SUPPORTS_CREDENTIALS'] = True
 predictions = [[0,0,0,0]]
 
 @app.route('/submit_sentence', methods=['POST', 'GET'])
-@cross_origin(origins=['https://mrmusser.github.io/mrmusser'])
+@cross_origin(origins=['https://mrmusser.github.io/mrmusser/'])
 def calculate_probabilities():
     global predictions
-    print(predictions)
     input_sentence = request.get_json()
     preprocessed = preprocess_sentence(input_sentence)
     transformed_input = vectorizer.transform([preprocessed])

@@ -9,9 +9,7 @@ import io
 import random
 from flask import Flask, Response, request, jsonify
 from flask_cors import CORS, cross_origin
-from matplotlib.backends.backend_agg import FigureCanvasAgg
-from matplotlib.backends.backend_svg import FigureCanvasSVG
-from matplotlib.figure import Figure
+
 
 
 def americanize(text):
@@ -1797,14 +1795,14 @@ def predict_sentence(sentence):
 
 
 
-app = Flask(__name__, template_folder='public')
+app = Flask(__name__)
 CORS(app)
 app.config['CORS_SUPPORTS_CREDENTIALS'] = True
 
 predictions = [[0,0,0,0]]
 
 @app.route('/submit_sentence', methods=['POST', 'GET'])
-@cross_origin(origins=['http://localhost:3000'])
+@cross_origin(origins=['https://mrmusser.github.io/mrmusser'])
 def calculate_probabilities():
     global predictions
     print(predictions)
@@ -1815,9 +1813,6 @@ def calculate_probabilities():
     return_values = [round(i, 2) for i in predictions[0]]
     return jsonify({'prediction_array': return_values})
 
-@app.route('/return_sentence', methods=['GET'])
-def return_probabilities():
-    return jsonify({"prediction_array": predictions})
 
 
 

@@ -1818,4 +1818,5 @@ def calculate_probabilities():
 
 if __name__ == '__main__':
     from waitress import serve
-    serve(app)
+    from os import environ
+    serve(app, host='0.0.0.0', port=environ.get("PORT", 5000))

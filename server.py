@@ -1802,7 +1802,7 @@ app.config['CORS_SUPPORTS_CREDENTIALS'] = True
 predictions = [[0,0,0,0]]
 
 @app.route('/', methods=['POST', 'GET'])
-@cross_origin(origins=['https://mrmusser.github.io/mrmusser/'])
+@cross_origin(origins=['https://mrmusser.github.io'])
 def calculate_probabilities():
     global predictions
     input_sentence = request.get_json()

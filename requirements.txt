@@ -5,6 +5,6 @@ Jinja2==2.10.3
 nltk==3.4.5
 pickleshare==0.7.5
 sklearn==0.0
-waitress==1.4.2
+waitress==1.4.3
 webencodings==0.5.1
 Werkzeug==0.16.0
